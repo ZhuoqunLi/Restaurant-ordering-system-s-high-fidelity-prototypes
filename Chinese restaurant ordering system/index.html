@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Chinese Restaurant Ordering System</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+    <script src="js/store.js"></script>
+    <script src="js/script.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+</head>
+<body >
+<div class="mainpage">
+    <div class="maintop"  >Welcome.</div>
+    <div class="menuup" >
+        <button class="transbutton" id="combo">Combo</button>
+    </div>
+    <div class="menudown">
+        <button class="transbutton" id="diy">A La Carte</button>
+    </div>
+    <div class="control">
+        <button class="transbutton1" id="tomore" style="float:left">More</button> 
+        <button class="transbutton1" id="statistic" style="float:right">Statistic</button>
+    </div>
+</div>
+
+<div class="statisticpsw">
+        <div class="top" >(Admin Allowed)</div>
+        <div class="menuwhole1" >
+            <p><br>Input password here:</p><br>
+            <input type="password" name="psw" id="password"><br>
+            <button class="button1" id="pswconfirm">Comfirm</button>
+        </div>
+        <div class="control">
+            <button class="button" id="statisticpswtomain"> < Back </button>
+        </div>
+    </div>
+
+<div class="statisticpage">
+     <div class="top" >Statistic Information</div>
+     <div class="menuup" id="statistic1">
+            <button class="button" id="sales">Sales</button>
+     </div>
+     <div class="menudown" id="statistic2">
+            <button class="button" id="inventory">Inventory</button>
+    </div>
+
+     <div class="menuwhole" id="invpage" hidden>
+             <div class="invstatistic">
+                <div class="salesitem">Sauted Chicken with Pepper. Left: 25</div>
+                <div class="salesitem">Braised Tofu with Seafood. Left: 20</div>
+                <div class="salesitem">Sauted Sweet Corn with Pine Nuts. Left: 17 </div>
+                <div class="salesitem">Hot and Sour Soup. Left: 32</div>
+                <div class="salesitem">Steamed Rice. Lfet: 2</div>
+                
+            </div>
+            <div class="invstatistic">
+                <div class="salesitem">Pumpkin Pastry. Left: 11</div>
+                <div class="salesitem">Iced White Fungus. Left: 29</div>
+                <div class="salesitem">Sauted Snow Peas. Left: 33</div>
+                <div class="salesitem">Duck Intestines with Chili. Left: 20</div>
+                <div class="salesitem">Eggplant with Chili Sauce. Left: 33</div>
+
+            </div>
+        
+    </div>
+    <div class="menuwhole" id="salespage">
+            <div class="salestatistic">
+                <p><strong>BEST SELLER</strong> </p>
+                <div class="salesitem">Sauted Chicken with Pepper in Iron Wok</div>
+                <div class="salesitem">Braised Tofu with Seafood </div>
+                <div class="salesitem">Sauted Sweet Corn with Pine Nuts </div>
+                <div class="salesitem">Hot and Sour Soup</div>
+                <div class="salesitem">Steamed Rice</div>
+                
+            </div>
+            <div class="salestatistic">
+                <p><strong>WORST SELLER</strong> </p>
+                <div class="salesitem">Pumpkin Pastry</div>
+                <div class="salesitem">Iced White Fungus  </div>
+                <div class="salesitem">Sauted Snow Peas</div>
+                <div class="salesitem">Duck Intestines with Chili</div>
+                <div class="salesitem">Hand-Shredded Eggplant with Chili Sauce</div>
+
+            </div>
+    </div>
+    <div class="control" id="back0">
+            <button class="button" id="statistictomain"> < To Main Page </button>
+     </div>
+     <div class="control" id="back1">
+            <button class="button" id="statistictomain"> < Back </button>
+    </div>
+        
+    </div>
+
+    
+<div class="paymentpage" id="choosepayment" hidden>
+        <div class="top" >Choose Your Payment</div>
+        <div class="menuup" id="oncash" >
+            <button class="button" id="cash">Cash</button>
+        </div>
+        <div class="menudown" id="oncard" >
+            <button class="button" id="card">Debit/Credit</button>
+        </div>
+        <div class="control"></div>
+  
+</div>
+
+<div class="paymentpage" id="finalpay" hidden>
+        <div class="top" >Place Your Order</div>
+        <div class="menuwhole" id="tipss" >
+        </div>
+       
+        <div class="control" id="payment2">
+            <button class="button" id="topayment"> Change Payment </button>
+            &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <button class="button" id="confirmtocon"> Confirm </button>
+        </div>
+        
+</div>
+
+<div class="paymentpage" id="congrats" hidden>
+        <div class="top" >Successfully Paid</div>
+        <div class="menuwhole" >
+            <br><br><br>
+            We have received your order.<br><br><br>
+            Something fantastic is on the way.
+        </div>
+       
+        <div class="control" id="payment2">
+            <button class="button" id="finaltomain"> < To Main Page </button>
+        </div>
+        
+</div>
+
+    <div class="viewpage" hidden>
+            <div class="viewcontent"  >
+                <div class="viewsection" id="orderedlist"></div>
+                <div class="additionalsection">
+                    <div class="tablewareinfo">
+                        <span class="tableleft"><input type="radio" name="tableware" checked="checked"></span>
+                        <span class="tableright" >Chinese-Style Tableware</span>
+                        <span class="tableleft"><input type="radio" name="tableware"></span>
+                        <span class="tableright">Western-Style Tableware</span>
+                    </div>
+
+                    <div class="someinfo">
+                        <br>
+                        <p class="addinfo">Customers Qty:&nbsp&nbsp&nbsp<input type="text" value="1"></p>
+                     
+                    
+                    </div>
+                    <div class="couponinfo">
+                            <form action="/action_page.php">
+                                Coupon:&nbsp&nbsp
+                                <input type="text" name="coupon" placeholder=ox0833279>
+                                </form> 
+                    </div>
+                     <div class="priceinfo"> </div>
+                </div>
+            </div>
+            
+            <div class="control">
+                <button class="downbutton" id="viewback"> < Back </button>
+                <button class="downbutton" id="done">Done</button>
+            </div>
+    </div>
+
+<div class="combopage">
+   
+    <div class="top" >
+        <button class="headbutton" id="fixedcombo">Fixed Combo</button>
+        <button class="headbutton" id="optionalcombo">Optional Combo</button>
+    </div>
+    <div class="menuwhole" >
+        
+        <div class="menureal" id="fixeddes" >
+                <br/><br/>Some special combos <br/>have already been chosen for you.<br/><br/> Just pick it out.
+        </div>
+        <div class="menureal" id="successordered" hidden>
+            <br/><br/><br/><br/>Successfully Ordered.<br/><br/> 
+        </div>
+        <div class="menureal" id="failordered" hidden>
+            <br/><br/><br/><br/>Please select at least one.<br/><br/> 
+        </div>
+
+        
+        <div class="menureal" id="optionaldes" style="overflow:auto">
+                <br/><br/>Get rid of Fixed Combo?<br/> <br/>Try to build your own here.
+        </div>
+       
+        <div class="menureal" id="fixedcombomenu" style="overflow:auto" >
+            <div class="singlecombo" id="fixedcombo1">
+                <img src="images/fixedcombo1.jpg" alt="fixedcombo1" width="55%" height="30%" >
+                <p id='fixedcombo1title'><strong><br/>Honey-Stewed BBQ Pork</strong></p><br/>
+                <p class="small">(Pork, Egg, Broccoli, Corn, Vegetable, Rice, Soup)</p><br/>
+                <p class="small">Notice: Egg Pork<br/>Spicy: Level 0<br/> Cal:580</p><br/>
+                <p id="fixedcombo1price"><strong><br/>16.99</strong></p><br/><br/><br/>
+                <p >Qty:  <input type="number" value="0" min='0' id="fixedcombo1qty"></p>
+            </div>
+            <div class="singlecombo" id="fixedcombo2">
+                <img src="images/fixedcombo2.jpg" alt="fixedcombo2" width="55%" height="30%">
+                <p id='fixedcombo2title'><strong><br/>Teriyaki Chicken Thigh</strong></p><br/>
+                <p class="small">(Chicken thigh, Egg, Broccoli, Corn, Vegetable, Rice, Soup)</p><br/>
+                <p class="small">Notice: Egg <br/>Spicy: Level 1<br/> Cal:520</p><br/>
+                <p id="fixedcombo2price"><strong><br/>15.99</strong></p><br/><br/><br/>
+                <p >Qty:  <input type="number" value="0" min='0' id="fixedcombo2qty"></p>
+            </div>
+            <div class="singlecombo" id="fixedcombo3">
+                 <img src="images/fixedcombo3.jpg" alt="fixedcombo3" width="55%" height="30%" >
+                <p id='fixedcombo3title'><strong><br/>Steak with Black Pepper</strong></p><br/>
+                <p class="small">(Beef, Egg, Broccoli, Corn, Vegetable, Rice, Soup)</p><br/>
+                <p class="small">Notice: Egg <br/>Spicy: Level 3<br/> Cal:550</p><br/>
+                <p id="fixedcombo3price"><strong><br/>18.99</strong></p><br/><br/><br/>
+                <p >Qty:  <input type="number" value="0" min='0' id="fixedcombo3qty"></p>
+            </div>
+        </div>
+
+        <div class="menureal" id="optionalcombomenu" style="overflow:auto"  >
+            <div class="singlecombo" id="optioncombo1">
+                <p><strong><br/>Step 1: Select one Meat </strong></p><br/>
+                <img src="images/optionmeat1.jpg" alt="optionmeat1" width="30%" height="24%">
+                <img src="images/optionmeat2.jpg" alt="optionmeat1" width="30%" height="24%">
+                <img src="images/optionmeat3.jpg" alt="optionmeat1" width="30%" height="24%">
+                <form>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="meat" value="1" checked></span>
+                        <span class="spanright" id="meattitle1"><br><strong>Crystal Fish</strong></span>
+                        <span class="spanmostrighr" id="meatprice1">6.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 1  Cal:260)</p>
+                    </div>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="meat" value="2"></span>
+                        <span class="spanright" id="meattitle2"><br><strong>Chilli Chicken</strong></span>
+                        <span class="spanmostrighr" id="meatprice2">5.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 3  Cal:290)</p>
+                    </div>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="meat" value="3" ></span>
+                        <span class="spanright" id="meattitle3"><br><strong>Boiled Beef</strong></span>
+                        <span class="spanmostrighr" id="meatprice3">6.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 3  Cal:320)</p>
+                    </div>
+                </form>
+
+            </div>
+            <div class="singlecombo" id="optioncombo2">
+                <p><strong><br/>Step 2: Select one Vegetable </strong></p><br/>
+                <img src="images/optionvegie1.jpg" alt="optionmeat1" width="30%" height="24%">
+                <img src="images/optionvegie2.jpg" alt="optionmeat1" width="30%" height="24%">
+                <img src="images/optionvegie3.jpg" alt="optionmeat1" width="30%" height="24%">
+               <form>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="vegie" value="1" checked></span>
+                        <span class="spanright" id="vegtitle1"><br><strong>Garlic broccoli</strong></span>
+                        <span class="spanmostrighr" id="vegprice1">3.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 2  Cal:130)</p>
+                    </div>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="vegie" value="2"></span>
+                        <span class="spanright" id="vegtitle2"><br><strong>Shredded Cucumber</strong></span>
+                        <span class="spanmostrighr" id="vegprice2">2.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 2  Cal:120)</p>
+                    </div>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="vegie" value="3" ></span>
+                        <span class="spanright" id="vegtitle3"><br><strong>Coleslaw</strong></span>
+                        <span class="spanmostrighr" id="vegprice3">3.49</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 0  Cal:90)</p>
+                    </div>
+                </form>
+            </div>
+            <div class="singlecombo" id="optioncombo3">
+                <p><strong><br/>Step 3: Select one Staple </strong></p><br/>
+                <img src="images/optionstaple1.jpg" alt="optionmeat1" width="30%" height="24%">
+                <img src="images/optionstaple2.jpg" alt="optionmeat1" width="30%" height="24%">
+                <img src="images/optionstaple3.jpg" alt="optionmeat1" width="30%" height="24%">
+                <form>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="staple" value="1" checked></span>
+                        <span class="spanright" id="stapletitle1"><br><strong> Pearled barley</strong></span>
+                        <span class="spanmostrighr" id="stapleprice1">2.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 0  Cal:180)</p>
+                    </div>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="staple" value="2"></span>
+                        <span class="spanright" id="stapletitle2"><br><strong>Mutton Vermicelli</strong></span>
+                        <span class="spanmostrighr" id="stapleprice2">3.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 2  Cal:290)</p>
+                    </div>
+                    <div class="optionalmenu">
+                        <span class="spanleft"><input type="radio" name="staple" value="3" ></span>
+                        <span class="spanright" id="stapletitle3"><br><strong>Beef Noodle</strong></span>
+                        <span class="spanmostrighr" id="stapleprice3">3.99</span><br>
+                        <p class="small">(Notice: N/A  Spicy: Level 1  Cal:320)</p>
+                    </div>
+                </form>
+                   
+            </div>
+        </div>
+    </div>
+   
+    <div class="control">
+        <button class="downbutton" id="combotomain"> < Back</button>
+        <button class="downbutton" id="add1"> Add to Order</button>
+        <button class="downbutton" id="viewordered">View Ordered</button>
+        
+    </div>
+</div>
+
+<div class="diypage">
+    <div class="top" >
+        <button class="headbutton" id="chinesebutton">Chinese-Style Menu</button>
+        <button class="headbutton" id="westernbutton">Western-Style Menu</button>
+    </div>
+   
+
+    <div class="menuwhole" >
+        <p class="normal" id="diydescription" margin="0"><br/><br/>Fully menu here.<br/><br/>Select your familiar one to scan.<br/>Enjoy your time.</p>
+        <p class="normal" id="successordered1" hidden><br/><br/><br/><br/>Successfully Ordered.<br/><br/></p>
+        <p class="normal" id="failordered1" hidden><br/><br/><br/><br/>Please select at least one.<br/><br/></p>
+        
+        <div class="menudiyleftwestern">
+            <button class="westernnavbar" id="chefbtn">Chef's Special</button> <button class="westernnavbar" id="appbtn">Appetizers</button>
+            <button class="westernnavbar" id="soupbtn">Soup & Beverage</button> <button class="westernnavbar" id="sfdbtn">Seafood</button>
+            <button class="westernnavbar" id="cdbtn">Chicken & Duck</button> <button class="westernnavbar" id="blbtn">Beef & Lamb</button>
+            <button class="westernnavbar" id="porkbtn">Pork</button> <button class="westernnavbar" id="vegbtn">Vegetable</button>
+            <button class="westernnavbar" id="stapbtn">Staple</button> <button class="westernnavbar" id="sdbtn">Sides & Dessert</button>
+        </div>
+        <div class="menudiyleftchinese">
+            <button class="chinesenavbar" id="chefbtn">Chef's Special</button> <button class="chinesenavbar" id="appbtn">Cold Dish</button>
+            <button class="chinesenavbar" id="hotbtn">Hot Dish</button> <button class="chinesenavbar" id="sdbtn">Snacks</button>
+            <button class="chinesenavbar" id="vegbtn">Vegetable</button><button class="chinesenavbar" id="stapbtn">Staple</button>
+            <button class="chinesenavbar" id="soupbtn">Soup</button>
+        </div>
+        <div class="menudiyright">
+            <div class="menudiyreal">
+                <div class="appdish" id="app1">
+                    <img src="images/app1.jpg" alt="app1" width="55%" height="30%">
+                    <p id="dishdes1"><strong><br/>Couple’s Sliced Beef in Chili Sauce </strong></p><br/>
+                    <p class="small">(beef,beef tongue,beef heart,beef tripe,peanut)</p><br/>
+                    <p class="small">Notice: Seasame <br/>Spicy: Level 3<br/> Cal:230</p><br/>
+                    <p id="dishprice1"><strong><br/>6.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish1"></p>
+                </div>
+                <div class="appdish" id="app2">
+                    <img src="images/app2.jpg" alt="app2" width="55%" height="30%">
+                    <p id="dishdes2"><strong><br/>Sliced Turnip with Sauce</strong></p><br/>
+                    <p class="small">(turmip)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 0<br/> Cal:220</p><br/>
+                    <p id="dishprice2"><strong><br/>3.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish2"></p>
+                </div>
+                <div class="appdish" id="app3">
+                    <img src="images/app3.jpg" alt="app3" width="55%" height="30%">
+                    <p id="dishdes3"><strong><br/>Hand-Shredded Eggplant with Chili Sauce</strong></p><br/>
+                    <p class="small">(eggplant,garlic)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 2<br/> Cal:270</p><br/>
+                    <p id="dishprice3"><strong><br/>4.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish3"></p>
+                </div>
+                
+                <div class="porkdish" id="pork1">
+                    <img src="images/pork1.jpg" alt="pork1" width="55%" height="30%">
+                    <p id="dishdes4"><strong><br/>Sauted Sliced Pork with Pepper and Chili</strong></p><br/>
+                    <p class="small">(pork ribs,peanut,garlic)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 1<br/> Cal:250</p><br/>
+                    <p id="dishprice4"><strong><br/>9.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish4"></p>
+                </div>
+                <div class="porkdish" id="pork2">
+                    <img src="images/pork2.jpg" alt="pork2" width="55%" height="30%">
+                    <p id="dishdes5"><strong><br/>Braised Pork</strong></p><br/>
+                    <p class="small">(pork ribs,green onion,rice wine)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 2<br/> Cal:350</p><br/>
+                    <p id="dishprice5"><strong><br/>11.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish5"></p>
+                </div>
+
+                <div class="bldish" id="bl1">
+                    <img src="images/bl1.jpg" alt="bl1" width="55%" height="30%">
+                    <p id="dishdes6"><strong><br/>Braised Lamb Chops with Carrots</strong></p><br/>
+                    <p class="small">(lamb, green onioin,ginger,turmip)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 1<br/> Cal:650</p><br/>
+                    <p id="dishprice6"><strong><br/>15.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish6"></p>
+                </div>
+                <div class="bldish" id="bl2">
+                    <img src="images/bl2.jpg" alt="bl2" width="55%" height="30%">
+                    <p id="dishdes7"><strong><br/>Sauted Sliced Lamb with Scallion</strong></p><br/>
+                    <p class="small">(lamb, green onioin)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 1<br/> Cal:440</p><br/>
+                    <p id="dishprice7"><strong><br/>14.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish7"></p>
+                </div>
+                <div class="bldish" id="bl3">
+                    <img src="images/bl3.jpg" alt="bl3" width="55%" height="30%">
+                    <p id="dishdes8"><strong><br/>Sliced Beef in Hot Chili Oil</strong></p><br/>
+                    <p class="small">(beef, rape, garlic,green onion)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 3<br/> Cal:550</p><br/>
+                    <p id="dishprice8"><strong><br/>16.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish8"></p>
+                </div>
+
+                <div class="chickendish" id="chicken1">
+                    <img src="images/chicken1.jpg" alt="chicken1" width="55%" height="30%">
+                    <p id="dishdes9"><strong><br/>Sauted Chicken with Pepper in Iron Wok</strong></p><br/>
+                    <p class="small">(chicken, celery, ginger,green onion,garlic)</p><br/>
+                    <p class="small">Notice: Legume <br/>Spicy: Level 3<br/> Cal:540</p><br/>
+                    <p id="dishprice9"><strong><br/>16.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish9"></p>
+                </div>
+                <div class="chickendish" id="chicken2">
+                    <img src="images/chicken2.jpg" alt="chicken2" width="55%" height="30%">
+                    <p id="dishdes10"><strong><br/>Roast Duck</strong></p><br/>
+                    <p class="small">(duck intestines, coriander, green onion)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 3<br/> Cal:480</p><br/>
+                    <p id="dishprice10"><strong><br/>13.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish10"></p>
+                </div>
+                <div class="chickendish" id="chicken3">
+                    <img src="images/chicken3.jpg" alt="chicken3" width="55%" height="30%">
+                    <p id="dishdes11"><strong><br/>Duck Intestines with Chili</strong></p><br/>
+                    <p class="small">(duck, green onion, maltose)</p><br/>
+                    <p class="small">Notice: N/A <br/>Spicy: Level 1<br/> Cal:630</p><br/>
+                    <p id="dishprice11"><strong><br/>14.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish11"></p>
+                </div>
+
+                <div class="seadish" id="sea1">
+                    <img src="images/sea1.jpg" alt="sea1" width="55%" height="30%">
+                    <p id="dishdes12"><strong><br/>Braised Tofu with Seafood</strong></p><br/>
+                    <p class="small">(tofu, prawn, egg white, scallop. Coriander)</p><br/>
+                    <p class="small">Notice:Soy,Seafood <br/>Spicy: Level 1<br/> Cal:390</p><br/>
+                    <p id="dishprice12"><strong><br/>11.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish12"></p>
+                </div>
+                <div class="seadish" id="sea2">
+                    <img src="images/sea2.jpg" alt="sea2" width="55%" height="30%">
+                    <p id="dishdes13"><strong><br/>Braised Perch in Soy Bean Paste</strong></p><br/>
+                    <p class="small">(perch, green onion)</p><br/>
+                    <p class="small">Notice:Soy,Seafood <br/>Spicy: Level 1<br/> Cal:440</p><br/>
+                    <p id="dishprice13"><strong><br/>16.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish13"></p>
+                </div>
+                <div class="seadish" id="sea3">
+                    <img src="images/sea3.jpg" alt="sea3" width="55%" height="30%">
+                    <p id="dishdes14"><strong><br/>Sauted Shrimp with Tomato Sauce</strong></p><br/>
+                    <p class="small">(prawn, egg, ketchup)</p><br/>
+                    <p class="small">Notice:Seafood <br/>Spicy: Level 1<br/> Cal:390</p><br/>
+                    <p id="dishprice14"><strong><br/>13.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish14"></p>
+                </div>
+
+                <div class="vegdish" id="veg1">
+                    <img src="images/veg1.jpg" alt="veg1" width="55%" height="30%">
+                    <p id="dishdes15"><strong><br/>Sauted Sweet Corn with Pine Nuts </strong></p><br/>
+                    <p class="small">(corn, pine nuts, green onion)</p><br/>
+                    <p class="small">Notice:legume,corn <br/>Spicy: Level 1<br/> Cal:420</p><br/>
+                    <p id="dishprice15"><strong><br/>7.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish15"></p>
+                </div>
+                <div class="vegdish" id="veg2">
+                    <img src="images/veg2.jpg" alt="veg2" width="55%" height="30%">
+                    <p id="dishdes16"><strong><br/>Pan-Seared Green Chili Pepper</strong></p><br/>
+                    <p class="small">(snow bean, garlic)</p><br/>
+                    <p class="small">Notice:legume,corn <br/>Spicy: Level 1<br/> Cal:380</p><br/>
+                    <p id="dishprice16"><strong><br/>6.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish16"></p>
+                </div>
+                <div class="vegdish" id="veg3">
+                    <img src="images/veg3.jpg" alt="veg3" width="55%" height="30%">
+                    <p id="dishdes17"><strong><br/>Sauted Snow Peas</strong></p><br/>
+                    <p class="small">(green pepper, green onion, ginger)</p><br/>
+                    <p class="small">Notice:legume <br/>Spicy: Level 1<br/> Cal:280</p><br/>
+                    <p id="dishprice17"><strong><br/>5.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish17"></p>
+                </div>
+
+                <div class="soupdish" id="soup1">
+                    <img src="images/soup1.jpg" alt="soup1" width="55%" height="30%">
+                    <p id="dishdes18"><strong><br/>Hot and Sour Soup</strong></p><br/>
+                    <p class="small">(tofu, egg, pork, argaric, green onion, ginger)</p><br/>
+                    <p class="small">Notice:N/A <br/>Spicy: Level 2<br/> Cal:180</p><br/>
+                    <p id="dishprice18"><strong><br/>4.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish18"></p>
+                </div>
+                <div class="soupdish" id="soup2">
+                    <img src="images/soup2.jpg" alt="soup2" width="55%" height="30%">
+                    <p id="dishdes19"><strong><br/>Chinese Cabbage and Tofu Soup</strong></p><br/>
+                    <p class="small">(cabbage, tofu, egg)</p><br/>
+                    <p class="small">Notice:soy <br/>Spicy: Level 2<br/> Cal:150</p><br/>
+                    <p id="dishprice19"><strong><br/>5.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish19"></p>
+                </div>
+                <div class="soupdish" id="soup3">
+                    <img src="images/soup3.jpg" alt="soup3" width="55%" height="30%">
+                    <p id="dishdes20"><strong><br/>Roast Duck Bone Soup </strong></p><br/>
+                    <p class="small">(duck bone, green onion)</p><br/>
+                    <p class="small">Notice:N/A <br/>Spicy: Level 1<br/> Cal:230</p><br/>
+                    <p id="dishprice20"><strong><br/>6.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish20"></p>
+                </div>
+
+                <div class="stapledish" id="staple1">
+                    <img src="images/optionstaple1.jpg" alt="optionstaple1" width="55%" height="30%">
+                    <p id="dishdes21"><strong><br/>Pearled barley </strong></p><br/>
+                    <p class="small">(rice)</p><br/>
+                    <p class="small">Notice:N/A <br/>Spicy: Level 1<br/> Cal:250</p><br/>
+                    <p id="dishprice21"><strong><br/>2.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish21"></p>
+                </div>
+                <div class="stapledish" id="staple2">
+                    <img src="images/optionstaple2.jpg" alt="optionstaple2" width="55%" height="30%">
+                    <p id="dishdes22"><strong><br/>Mutton Vermicelli </strong></p><br/>
+                    <p class="small">(pumpkin, black sesame, honey)</p><br/>
+                    <p class="small">Notice:N/A <br/>Spicy: Level 1<br/> Cal:275</p><br/>
+                    <p id="dishprice22"><strong><br/>3.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish22"></p>
+                </div>
+                <div class="stapledish" id="staple3">
+                    <img src="images/optionstaple3.jpg" alt="optionstaple3" width="55%" height="30%">
+                    <p id="dishdes23"><strong><br/>Beef Noodle </strong></p><br/>
+                    <p class="small">(white fungus)</p><br/>
+                    <p class="small">Notice:N/A <br/>Spicy: Level 1<br/> Cal:338</p><br/>
+                    <p id="dishprice23"><strong><br/>3.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish23"></p>
+                </div>
+
+                <div class="snackdish" id="snack1">
+                    <img src="images/snack1.jpg" alt="snack1" width="55%" height="30%">
+                    <p id="dishdes24"><strong><br/>Pumpkin Pastry</strong></p><br/>
+                    <p class="small">(flour, white sesame)</p><br/>
+                    <p class="small">Notice:Pumpkin <br/>Spicy: Level 1<br/> Cal:257</p><br/>
+                    <p id="dishprice24"><strong><br/>2.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish24"></p>
+                </div>
+                <div class="snackdish" id="snack2">
+                    <img src="images/snack2.jpg" alt="snack2" width="55%" height="30%">
+                    <p id="dishdes25"><strong><br/>Iced White Fungus </strong></p><br/>
+                    <p class="small">(Pork, Egg, Broccoli, Corn, Vegetable, Rice, Soup)</p><br/>
+                    <p class="small">Notice:Pumpkin <br/>Spicy: Level 1<br/> Cal:346</p><br/>
+                    <p id="dishprice25"><strong><br/>3.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish25"></p>
+                </div>
+                <div class="snackdish" id="snack3">
+                    <img src="images/snack3.jpg" alt="snack3" width="55%" height="30%">
+                    <p id="dishdes26"><strong><br/>Fried Glutinous Rice Balls with Sesame </strong></p><br/>
+                    <p class="small">(prawn, egg, ketchup)</p><br/>
+                    <p class="small">Notice:Sesame <br/>Spicy: Level 1<br/> Cal:344</p><br/>
+                    <p id="dishprice26"><strong><br/>4.99</strong></p><br/><br/><br/>
+                    <p >Qty:  <input type="number" value="0" min='0' id="dish26"></p>
+                </div>
+
+            </div>
+        </div>
+        
+    </div>
+   
+    <div class="control">
+        <button class="downbutton" id="diytomain"> < Back</button>
+        <button class="downbutton" id="add2"> Add to Order</button>
+        <button class="downbutton" id="viewordered">View Ordered</button>
+    </div>
+</div>
+
+</body>
+</html>
